@@ -1,19 +1,22 @@
 package de.earley;
 
 import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import de.earley.GameStateManager.State;
 
 public class TheWall extends ApplicationAdapter {
-	
+
+	GameStateManager manager;
+
 	@Override
-	public void create () {
+	public void create() {
+		manager = new GameStateManager();
+		manager.addGameState(State.MENU, new Menu());
+		manager.gotoState(State.MENU);
 	}
 
 	@Override
-	public void render () {
+	public void render() {
+		manager.render();
 
 	}
 }
