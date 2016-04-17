@@ -9,7 +9,6 @@ public abstract class GameState {
 	}
 
 	public abstract void render();
-
 	public void onEnter() {
 
 	}
