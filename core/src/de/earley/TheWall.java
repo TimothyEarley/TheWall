@@ -5,13 +5,16 @@ import de.earley.GameStateManager.State;
 
 public class TheWall extends ApplicationAdapter {
 
+	public static final int WIDTH = 800, HEIGHT = WIDTH * 9/16;
+	
 	GameStateManager manager;
 
 	@Override
 	public void create() {
 		manager = new GameStateManager();
 		manager.addGameState(State.MENU, new Menu());
-		manager.gotoState(State.MENU);
+		manager.addGameState(State.GAME, new Game());
+		manager.gotoState(State.GAME);
 	}
 
 	@Override

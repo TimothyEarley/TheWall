@@ -7,6 +7,8 @@ import de.earley.TheWall;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
+		config.width = TheWall.WIDTH;
+		config.height = TheWall.HEIGHT;
 		new LwjglApplication(new TheWall(), config);
 	}
 }

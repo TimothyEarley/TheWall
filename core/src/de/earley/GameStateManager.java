@@ -9,7 +9,7 @@ public class GameStateManager {
 		MENU, GAME
 	}
 
-	Map<State, GameState> states = new HashMap<>();
+	Map<State, GameState> states = new HashMap<State, GameState>();
 
 	GameState current;
 
