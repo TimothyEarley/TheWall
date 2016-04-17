@@ -12,21 +12,26 @@ public class Wall {
 
 	private Texture wallTex;
 
-	public float x = 1, xHole = (float) Math.random(), yHole = (float) Math.random();
-	
+	public float x = 1;
+
+	//temp until proper top/middle/bottom is implemented
+	boolean flipped = Math.random() < 0.5;
+
 	
 
 	public Wall() {
 		// TODO replace with options from textureatlas/spritesheet
-		wallTex = new Texture(Gdx.files.internal("trump2.jpg"));
+		wallTex = new Texture(Gdx.files.internal("wall.png"));
 	}
 
 	public void render(SpriteBatch batch) {
 		// update
 		update();
-		
-		// render;		
-		batch.draw(wallTex, x * TheWall.WIDTH, 0, 30, TheWall.HEIGHT, 0, 0, wallTex.getWidth(), wallTex.getHeight(), false, false);
+
+		// render;
+		// keep the wall proportions
+		int width = wallTex.getWidth() * TheWall.HEIGHT / wallTex.getHeight();
+		batch.draw(wallTex, x * TheWall.WIDTH, 0, width, TheWall.HEIGHT, 0, 0, wallTex.getWidth(), wallTex.getHeight(), false, flipped);
 	}
 
 	private void update() {
